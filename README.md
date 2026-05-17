@@ -35,8 +35,9 @@ Open `http://localhost:3000`.
 
 ```bash
 npm run build
-npm run start
 ```
+
+The production build is exported to the `out` directory.
 
 ## Deploy to Vercel
 
@@ -48,17 +49,13 @@ npm run start
 
 ## Deploy to Cloudflare Pages
 
-For Cloudflare Pages, use the official Next.js adapter flow:
+This app is fully static and does not need Workers, Wrangler, or OpenNext.
 
-```bash
-npm install
-npx @cloudflare/next-on-pages
-```
+Use these Cloudflare Pages settings:
 
-Set the Pages build command to:
+- Build command: `npm run build`
+- Build output directory: `out`
+- Deploy command: leave empty
+- Node.js version: `22`
 
-```bash
-npx @cloudflare/next-on-pages
-```
-
-Use `.vercel/output/static` as the output directory if prompted by Cloudflare.
+If Cloudflare currently has `npx wrangler deploy` in the deploy command field, remove it. That command deploys as a Worker and can create a failing OpenNext service binding.
