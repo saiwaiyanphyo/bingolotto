@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #05070d;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+@layer components {
+  .control-button {
+    @apply flex h-12 items-center justify-center gap-2 rounded-md px-4 text-sm font-black shadow-lg transition hover:brightness-110 active:scale-[0.98];
+  }
+
+  .icon-button {
+    @apply flex h-10 items-center gap-2 rounded-md border border-white/10 bg-white/10 px-3 text-sm font-bold text-white transition hover:bg-white/15 disabled:opacity-40;
+  }
+
+  .field {
+    @apply text-sm font-bold text-white/80;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    @apply mt-2 w-full rounded-md border border-white/10 bg-black/35 px-3 py-3 text-white outline-none transition placeholder:text-white/30 focus:border-gold focus:ring-2 focus:ring-gold/20;
+  }
+}
